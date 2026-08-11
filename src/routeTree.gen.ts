@@ -12,7 +12,22 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AuthenticatedActivityRouteImport } from './routes/_authenticated/activity'
+import { Route as AuthenticatedAnalyticsRouteImport } from './routes/_authenticated/analytics'
+import { Route as AuthenticatedCalendarRouteImport } from './routes/_authenticated/calendar'
+import { Route as AuthenticatedCoOverviewRouteImport } from './routes/_authenticated/co-overview'
+import { Route as AuthenticatedDailyMissionRouteImport } from './routes/_authenticated/daily-mission'
+import { Route as AuthenticatedDemosRouteImport } from './routes/_authenticated/demos'
+import { Route as AuthenticatedMyTasksRouteImport } from './routes/_authenticated/my-tasks'
+import { Route as AuthenticatedNotesRouteImport } from './routes/_authenticated/notes'
+import { Route as AuthenticatedOutreachRouteImport } from './routes/_authenticated/outreach'
 import { Route as AuthenticatedOverviewRouteImport } from './routes/_authenticated/overview'
+import { Route as AuthenticatedPipelineRouteImport } from './routes/_authenticated/pipeline'
+import { Route as AuthenticatedSettingsRouteImport } from './routes/_authenticated/settings'
+import { Route as AuthenticatedSocialRouteImport } from './routes/_authenticated/social'
+import { Route as AuthenticatedTasksRouteImport } from './routes/_authenticated/tasks'
+import { Route as AuthenticatedTeamRouteImport } from './routes/_authenticated/team'
+import { Route as AuthenticatedWeeklyReviewRouteImport } from './routes/_authenticated/weekly-review'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -28,36 +43,213 @@ const AuthRoute = AuthRouteImport.update({
   path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedActivityRoute = AuthenticatedActivityRouteImport.update({
+  id: '/activity',
+  path: '/activity',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedAnalyticsRoute = AuthenticatedAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedCalendarRoute = AuthenticatedCalendarRouteImport.update({
+  id: '/calendar',
+  path: '/calendar',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedCoOverviewRoute = AuthenticatedCoOverviewRouteImport.update({
+  id: '/co-overview',
+  path: '/co-overview',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedDailyMissionRoute =
+  AuthenticatedDailyMissionRouteImport.update({
+    id: '/daily-mission',
+    path: '/daily-mission',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedDemosRoute = AuthenticatedDemosRouteImport.update({
+  id: '/demos',
+  path: '/demos',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedMyTasksRoute = AuthenticatedMyTasksRouteImport.update({
+  id: '/my-tasks',
+  path: '/my-tasks',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedNotesRoute = AuthenticatedNotesRouteImport.update({
+  id: '/notes',
+  path: '/notes',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedOutreachRoute = AuthenticatedOutreachRouteImport.update({
+  id: '/outreach',
+  path: '/outreach',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedOverviewRoute = AuthenticatedOverviewRouteImport.update({
   id: '/overview',
   path: '/overview',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedPipelineRoute = AuthenticatedPipelineRouteImport.update({
+  id: '/pipeline',
+  path: '/pipeline',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedSettingsRoute = AuthenticatedSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedSocialRoute = AuthenticatedSocialRouteImport.update({
+  id: '/social',
+  path: '/social',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedTasksRoute = AuthenticatedTasksRouteImport.update({
+  id: '/tasks',
+  path: '/tasks',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedTeamRoute = AuthenticatedTeamRouteImport.update({
+  id: '/team',
+  path: '/team',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedWeeklyReviewRoute =
+  AuthenticatedWeeklyReviewRouteImport.update({
+    id: '/weekly-review',
+    path: '/weekly-review',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
+  '/activity': typeof AuthenticatedActivityRoute
+  '/analytics': typeof AuthenticatedAnalyticsRoute
+  '/calendar': typeof AuthenticatedCalendarRoute
+  '/co-overview': typeof AuthenticatedCoOverviewRoute
+  '/daily-mission': typeof AuthenticatedDailyMissionRoute
+  '/demos': typeof AuthenticatedDemosRoute
+  '/my-tasks': typeof AuthenticatedMyTasksRoute
+  '/notes': typeof AuthenticatedNotesRoute
+  '/outreach': typeof AuthenticatedOutreachRoute
   '/overview': typeof AuthenticatedOverviewRoute
+  '/pipeline': typeof AuthenticatedPipelineRoute
+  '/settings': typeof AuthenticatedSettingsRoute
+  '/social': typeof AuthenticatedSocialRoute
+  '/tasks': typeof AuthenticatedTasksRoute
+  '/team': typeof AuthenticatedTeamRoute
+  '/weekly-review': typeof AuthenticatedWeeklyReviewRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
+  '/activity': typeof AuthenticatedActivityRoute
+  '/analytics': typeof AuthenticatedAnalyticsRoute
+  '/calendar': typeof AuthenticatedCalendarRoute
+  '/co-overview': typeof AuthenticatedCoOverviewRoute
+  '/daily-mission': typeof AuthenticatedDailyMissionRoute
+  '/demos': typeof AuthenticatedDemosRoute
+  '/my-tasks': typeof AuthenticatedMyTasksRoute
+  '/notes': typeof AuthenticatedNotesRoute
+  '/outreach': typeof AuthenticatedOutreachRoute
   '/overview': typeof AuthenticatedOverviewRoute
+  '/pipeline': typeof AuthenticatedPipelineRoute
+  '/settings': typeof AuthenticatedSettingsRoute
+  '/social': typeof AuthenticatedSocialRoute
+  '/tasks': typeof AuthenticatedTasksRoute
+  '/team': typeof AuthenticatedTeamRoute
+  '/weekly-review': typeof AuthenticatedWeeklyReviewRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/auth': typeof AuthRoute
+  '/_authenticated/activity': typeof AuthenticatedActivityRoute
+  '/_authenticated/analytics': typeof AuthenticatedAnalyticsRoute
+  '/_authenticated/calendar': typeof AuthenticatedCalendarRoute
+  '/_authenticated/co-overview': typeof AuthenticatedCoOverviewRoute
+  '/_authenticated/daily-mission': typeof AuthenticatedDailyMissionRoute
+  '/_authenticated/demos': typeof AuthenticatedDemosRoute
+  '/_authenticated/my-tasks': typeof AuthenticatedMyTasksRoute
+  '/_authenticated/notes': typeof AuthenticatedNotesRoute
+  '/_authenticated/outreach': typeof AuthenticatedOutreachRoute
   '/_authenticated/overview': typeof AuthenticatedOverviewRoute
+  '/_authenticated/pipeline': typeof AuthenticatedPipelineRoute
+  '/_authenticated/settings': typeof AuthenticatedSettingsRoute
+  '/_authenticated/social': typeof AuthenticatedSocialRoute
+  '/_authenticated/tasks': typeof AuthenticatedTasksRoute
+  '/_authenticated/team': typeof AuthenticatedTeamRoute
+  '/_authenticated/weekly-review': typeof AuthenticatedWeeklyReviewRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/auth' | '/overview'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/activity'
+    | '/analytics'
+    | '/calendar'
+    | '/co-overview'
+    | '/daily-mission'
+    | '/demos'
+    | '/my-tasks'
+    | '/notes'
+    | '/outreach'
+    | '/overview'
+    | '/pipeline'
+    | '/settings'
+    | '/social'
+    | '/tasks'
+    | '/team'
+    | '/weekly-review'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/auth' | '/overview'
+  to:
+    | '/'
+    | '/auth'
+    | '/activity'
+    | '/analytics'
+    | '/calendar'
+    | '/co-overview'
+    | '/daily-mission'
+    | '/demos'
+    | '/my-tasks'
+    | '/notes'
+    | '/outreach'
+    | '/overview'
+    | '/pipeline'
+    | '/settings'
+    | '/social'
+    | '/tasks'
+    | '/team'
+    | '/weekly-review'
   id:
-    '__root__' | '/' | '/_authenticated' | '/auth' | '/_authenticated/overview'
+    | '__root__'
+    | '/'
+    | '/_authenticated'
+    | '/auth'
+    | '/_authenticated/activity'
+    | '/_authenticated/analytics'
+    | '/_authenticated/calendar'
+    | '/_authenticated/co-overview'
+    | '/_authenticated/daily-mission'
+    | '/_authenticated/demos'
+    | '/_authenticated/my-tasks'
+    | '/_authenticated/notes'
+    | '/_authenticated/outreach'
+    | '/_authenticated/overview'
+    | '/_authenticated/pipeline'
+    | '/_authenticated/settings'
+    | '/_authenticated/social'
+    | '/_authenticated/tasks'
+    | '/_authenticated/team'
+    | '/_authenticated/weekly-review'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -89,6 +281,69 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/activity': {
+      id: '/_authenticated/activity'
+      path: '/activity'
+      fullPath: '/activity'
+      preLoaderRoute: typeof AuthenticatedActivityRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/analytics': {
+      id: '/_authenticated/analytics'
+      path: '/analytics'
+      fullPath: '/analytics'
+      preLoaderRoute: typeof AuthenticatedAnalyticsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/calendar': {
+      id: '/_authenticated/calendar'
+      path: '/calendar'
+      fullPath: '/calendar'
+      preLoaderRoute: typeof AuthenticatedCalendarRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/co-overview': {
+      id: '/_authenticated/co-overview'
+      path: '/co-overview'
+      fullPath: '/co-overview'
+      preLoaderRoute: typeof AuthenticatedCoOverviewRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/daily-mission': {
+      id: '/_authenticated/daily-mission'
+      path: '/daily-mission'
+      fullPath: '/daily-mission'
+      preLoaderRoute: typeof AuthenticatedDailyMissionRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/demos': {
+      id: '/_authenticated/demos'
+      path: '/demos'
+      fullPath: '/demos'
+      preLoaderRoute: typeof AuthenticatedDemosRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/my-tasks': {
+      id: '/_authenticated/my-tasks'
+      path: '/my-tasks'
+      fullPath: '/my-tasks'
+      preLoaderRoute: typeof AuthenticatedMyTasksRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/notes': {
+      id: '/_authenticated/notes'
+      path: '/notes'
+      fullPath: '/notes'
+      preLoaderRoute: typeof AuthenticatedNotesRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/outreach': {
+      id: '/_authenticated/outreach'
+      path: '/outreach'
+      fullPath: '/outreach'
+      preLoaderRoute: typeof AuthenticatedOutreachRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/overview': {
       id: '/_authenticated/overview'
       path: '/overview'
@@ -96,15 +351,87 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedOverviewRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/pipeline': {
+      id: '/_authenticated/pipeline'
+      path: '/pipeline'
+      fullPath: '/pipeline'
+      preLoaderRoute: typeof AuthenticatedPipelineRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/settings': {
+      id: '/_authenticated/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof AuthenticatedSettingsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/social': {
+      id: '/_authenticated/social'
+      path: '/social'
+      fullPath: '/social'
+      preLoaderRoute: typeof AuthenticatedSocialRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/tasks': {
+      id: '/_authenticated/tasks'
+      path: '/tasks'
+      fullPath: '/tasks'
+      preLoaderRoute: typeof AuthenticatedTasksRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/team': {
+      id: '/_authenticated/team'
+      path: '/team'
+      fullPath: '/team'
+      preLoaderRoute: typeof AuthenticatedTeamRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/weekly-review': {
+      id: '/_authenticated/weekly-review'
+      path: '/weekly-review'
+      fullPath: '/weekly-review'
+      preLoaderRoute: typeof AuthenticatedWeeklyReviewRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
   }
 }
 
 interface AuthenticatedRouteRouteChildren {
+  AuthenticatedActivityRoute: typeof AuthenticatedActivityRoute
+  AuthenticatedAnalyticsRoute: typeof AuthenticatedAnalyticsRoute
+  AuthenticatedCalendarRoute: typeof AuthenticatedCalendarRoute
+  AuthenticatedCoOverviewRoute: typeof AuthenticatedCoOverviewRoute
+  AuthenticatedDailyMissionRoute: typeof AuthenticatedDailyMissionRoute
+  AuthenticatedDemosRoute: typeof AuthenticatedDemosRoute
+  AuthenticatedMyTasksRoute: typeof AuthenticatedMyTasksRoute
+  AuthenticatedNotesRoute: typeof AuthenticatedNotesRoute
+  AuthenticatedOutreachRoute: typeof AuthenticatedOutreachRoute
   AuthenticatedOverviewRoute: typeof AuthenticatedOverviewRoute
+  AuthenticatedPipelineRoute: typeof AuthenticatedPipelineRoute
+  AuthenticatedSettingsRoute: typeof AuthenticatedSettingsRoute
+  AuthenticatedSocialRoute: typeof AuthenticatedSocialRoute
+  AuthenticatedTasksRoute: typeof AuthenticatedTasksRoute
+  AuthenticatedTeamRoute: typeof AuthenticatedTeamRoute
+  AuthenticatedWeeklyReviewRoute: typeof AuthenticatedWeeklyReviewRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedActivityRoute: AuthenticatedActivityRoute,
+  AuthenticatedAnalyticsRoute: AuthenticatedAnalyticsRoute,
+  AuthenticatedCalendarRoute: AuthenticatedCalendarRoute,
+  AuthenticatedCoOverviewRoute: AuthenticatedCoOverviewRoute,
+  AuthenticatedDailyMissionRoute: AuthenticatedDailyMissionRoute,
+  AuthenticatedDemosRoute: AuthenticatedDemosRoute,
+  AuthenticatedMyTasksRoute: AuthenticatedMyTasksRoute,
+  AuthenticatedNotesRoute: AuthenticatedNotesRoute,
+  AuthenticatedOutreachRoute: AuthenticatedOutreachRoute,
   AuthenticatedOverviewRoute: AuthenticatedOverviewRoute,
+  AuthenticatedPipelineRoute: AuthenticatedPipelineRoute,
+  AuthenticatedSettingsRoute: AuthenticatedSettingsRoute,
+  AuthenticatedSocialRoute: AuthenticatedSocialRoute,
+  AuthenticatedTasksRoute: AuthenticatedTasksRoute,
+  AuthenticatedTeamRoute: AuthenticatedTeamRoute,
+  AuthenticatedWeeklyReviewRoute: AuthenticatedWeeklyReviewRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =
