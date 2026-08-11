@@ -31,6 +31,7 @@ import { Route as AuthenticatedWeeklyReviewRouteImport } from './routes/_authent
 import { Route as AuthenticatedContentIndexRouteImport } from './routes/_authenticated/content/index'
 import { Route as AuthenticatedContentApprovalsRouteImport } from './routes/_authenticated/content/approvals'
 import { Route as AuthenticatedLeadsIndexRouteImport } from './routes/_authenticated/leads/index'
+import { Route as AuthenticatedLeadsLeadIdRouteImport } from './routes/_authenticated/leads/$leadId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -145,6 +146,12 @@ const AuthenticatedLeadsIndexRoute = AuthenticatedLeadsIndexRouteImport.update({
   path: '/leads/',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedLeadsLeadIdRoute =
+  AuthenticatedLeadsLeadIdRouteImport.update({
+    id: '/leads/$leadId',
+    path: '/leads/$leadId',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -166,6 +173,7 @@ export interface FileRoutesByFullPath {
   '/team': typeof AuthenticatedTeamRoute
   '/weekly-review': typeof AuthenticatedWeeklyReviewRoute
   '/content/approvals': typeof AuthenticatedContentApprovalsRoute
+  '/leads/$leadId': typeof AuthenticatedLeadsLeadIdRoute
   '/content/': typeof AuthenticatedContentIndexRoute
   '/leads/': typeof AuthenticatedLeadsIndexRoute
 }
@@ -189,6 +197,7 @@ export interface FileRoutesByTo {
   '/team': typeof AuthenticatedTeamRoute
   '/weekly-review': typeof AuthenticatedWeeklyReviewRoute
   '/content/approvals': typeof AuthenticatedContentApprovalsRoute
+  '/leads/$leadId': typeof AuthenticatedLeadsLeadIdRoute
   '/content': typeof AuthenticatedContentIndexRoute
   '/leads': typeof AuthenticatedLeadsIndexRoute
 }
@@ -214,6 +223,7 @@ export interface FileRoutesById {
   '/_authenticated/team': typeof AuthenticatedTeamRoute
   '/_authenticated/weekly-review': typeof AuthenticatedWeeklyReviewRoute
   '/_authenticated/content/approvals': typeof AuthenticatedContentApprovalsRoute
+  '/_authenticated/leads/$leadId': typeof AuthenticatedLeadsLeadIdRoute
   '/_authenticated/content/': typeof AuthenticatedContentIndexRoute
   '/_authenticated/leads/': typeof AuthenticatedLeadsIndexRoute
 }
@@ -239,6 +249,7 @@ export interface FileRouteTypes {
     | '/team'
     | '/weekly-review'
     | '/content/approvals'
+    | '/leads/$leadId'
     | '/content/'
     | '/leads/'
   fileRoutesByTo: FileRoutesByTo
@@ -262,6 +273,7 @@ export interface FileRouteTypes {
     | '/team'
     | '/weekly-review'
     | '/content/approvals'
+    | '/leads/$leadId'
     | '/content'
     | '/leads'
   id:
@@ -286,6 +298,7 @@ export interface FileRouteTypes {
     | '/_authenticated/team'
     | '/_authenticated/weekly-review'
     | '/_authenticated/content/approvals'
+    | '/_authenticated/leads/$leadId'
     | '/_authenticated/content/'
     | '/_authenticated/leads/'
   fileRoutesById: FileRoutesById
@@ -452,6 +465,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedLeadsIndexRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/leads/$leadId': {
+      id: '/_authenticated/leads/$leadId'
+      path: '/leads/$leadId'
+      fullPath: '/leads/$leadId'
+      preLoaderRoute: typeof AuthenticatedLeadsLeadIdRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
   }
 }
 
@@ -473,6 +493,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedTeamRoute: typeof AuthenticatedTeamRoute
   AuthenticatedWeeklyReviewRoute: typeof AuthenticatedWeeklyReviewRoute
   AuthenticatedContentApprovalsRoute: typeof AuthenticatedContentApprovalsRoute
+  AuthenticatedLeadsLeadIdRoute: typeof AuthenticatedLeadsLeadIdRoute
   AuthenticatedContentIndexRoute: typeof AuthenticatedContentIndexRoute
   AuthenticatedLeadsIndexRoute: typeof AuthenticatedLeadsIndexRoute
 }
@@ -495,6 +516,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedTeamRoute: AuthenticatedTeamRoute,
   AuthenticatedWeeklyReviewRoute: AuthenticatedWeeklyReviewRoute,
   AuthenticatedContentApprovalsRoute: AuthenticatedContentApprovalsRoute,
+  AuthenticatedLeadsLeadIdRoute: AuthenticatedLeadsLeadIdRoute,
   AuthenticatedContentIndexRoute: AuthenticatedContentIndexRoute,
   AuthenticatedLeadsIndexRoute: AuthenticatedLeadsIndexRoute,
 }
