@@ -28,6 +28,9 @@ import { Route as AuthenticatedSocialRouteImport } from './routes/_authenticated
 import { Route as AuthenticatedTasksRouteImport } from './routes/_authenticated/tasks'
 import { Route as AuthenticatedTeamRouteImport } from './routes/_authenticated/team'
 import { Route as AuthenticatedWeeklyReviewRouteImport } from './routes/_authenticated/weekly-review'
+import { Route as AuthenticatedContentIndexRouteImport } from './routes/_authenticated/content/index'
+import { Route as AuthenticatedContentApprovalsRouteImport } from './routes/_authenticated/content/approvals'
+import { Route as AuthenticatedLeadsIndexRouteImport } from './routes/_authenticated/leads/index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -125,6 +128,23 @@ const AuthenticatedWeeklyReviewRoute =
     path: '/weekly-review',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const AuthenticatedContentIndexRoute =
+  AuthenticatedContentIndexRouteImport.update({
+    id: '/content/',
+    path: '/content/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedContentApprovalsRoute =
+  AuthenticatedContentApprovalsRouteImport.update({
+    id: '/content/approvals',
+    path: '/content/approvals',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedLeadsIndexRoute = AuthenticatedLeadsIndexRouteImport.update({
+  id: '/leads/',
+  path: '/leads/',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -145,6 +165,9 @@ export interface FileRoutesByFullPath {
   '/tasks': typeof AuthenticatedTasksRoute
   '/team': typeof AuthenticatedTeamRoute
   '/weekly-review': typeof AuthenticatedWeeklyReviewRoute
+  '/content/approvals': typeof AuthenticatedContentApprovalsRoute
+  '/content/': typeof AuthenticatedContentIndexRoute
+  '/leads/': typeof AuthenticatedLeadsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -165,6 +188,9 @@ export interface FileRoutesByTo {
   '/tasks': typeof AuthenticatedTasksRoute
   '/team': typeof AuthenticatedTeamRoute
   '/weekly-review': typeof AuthenticatedWeeklyReviewRoute
+  '/content/approvals': typeof AuthenticatedContentApprovalsRoute
+  '/content': typeof AuthenticatedContentIndexRoute
+  '/leads': typeof AuthenticatedLeadsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -187,6 +213,9 @@ export interface FileRoutesById {
   '/_authenticated/tasks': typeof AuthenticatedTasksRoute
   '/_authenticated/team': typeof AuthenticatedTeamRoute
   '/_authenticated/weekly-review': typeof AuthenticatedWeeklyReviewRoute
+  '/_authenticated/content/approvals': typeof AuthenticatedContentApprovalsRoute
+  '/_authenticated/content/': typeof AuthenticatedContentIndexRoute
+  '/_authenticated/leads/': typeof AuthenticatedLeadsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -209,6 +238,9 @@ export interface FileRouteTypes {
     | '/tasks'
     | '/team'
     | '/weekly-review'
+    | '/content/approvals'
+    | '/content/'
+    | '/leads/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -229,6 +261,9 @@ export interface FileRouteTypes {
     | '/tasks'
     | '/team'
     | '/weekly-review'
+    | '/content/approvals'
+    | '/content'
+    | '/leads'
   id:
     | '__root__'
     | '/'
@@ -250,6 +285,9 @@ export interface FileRouteTypes {
     | '/_authenticated/tasks'
     | '/_authenticated/team'
     | '/_authenticated/weekly-review'
+    | '/_authenticated/content/approvals'
+    | '/_authenticated/content/'
+    | '/_authenticated/leads/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -393,6 +431,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedWeeklyReviewRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/content/': {
+      id: '/_authenticated/content/'
+      path: '/content'
+      fullPath: '/content/'
+      preLoaderRoute: typeof AuthenticatedContentIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/content/approvals': {
+      id: '/_authenticated/content/approvals'
+      path: '/content/approvals'
+      fullPath: '/content/approvals'
+      preLoaderRoute: typeof AuthenticatedContentApprovalsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/leads/': {
+      id: '/_authenticated/leads/'
+      path: '/leads'
+      fullPath: '/leads/'
+      preLoaderRoute: typeof AuthenticatedLeadsIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
   }
 }
 
@@ -413,6 +472,9 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedTasksRoute: typeof AuthenticatedTasksRoute
   AuthenticatedTeamRoute: typeof AuthenticatedTeamRoute
   AuthenticatedWeeklyReviewRoute: typeof AuthenticatedWeeklyReviewRoute
+  AuthenticatedContentApprovalsRoute: typeof AuthenticatedContentApprovalsRoute
+  AuthenticatedContentIndexRoute: typeof AuthenticatedContentIndexRoute
+  AuthenticatedLeadsIndexRoute: typeof AuthenticatedLeadsIndexRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
@@ -432,6 +494,9 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedTasksRoute: AuthenticatedTasksRoute,
   AuthenticatedTeamRoute: AuthenticatedTeamRoute,
   AuthenticatedWeeklyReviewRoute: AuthenticatedWeeklyReviewRoute,
+  AuthenticatedContentApprovalsRoute: AuthenticatedContentApprovalsRoute,
+  AuthenticatedContentIndexRoute: AuthenticatedContentIndexRoute,
+  AuthenticatedLeadsIndexRoute: AuthenticatedLeadsIndexRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =
